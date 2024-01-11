@@ -1,30 +1,19 @@
-{%- if odoo_version < 13 %}
-  {%- include "version-specific/mqt-compat/.pylintrc-mandatory.jinja" %}
-{%- else %}
+
 [MASTER]
 load-plugins=pylint_odoo
 score=n
 
 [ODOOLINT]
-{%- if odoo_version < 16 %}
-readme_template_url="https://github.com/OCA/maintainer-tools/blob/master/template/module/README.rst"
-manifest_required_authors={{ org_name }}
-manifest_required_keys=license
-manifest_deprecated_keys=description,active
-license_allowed=AGPL-3,GPL-2,GPL-2 or any later version,GPL-3,GPL-3 or any later version,LGPL-3
-valid_odoo_versions={{ odoo_version }}
-{%- else %}
 readme-template-url="https://github.com/OCA/maintainer-tools/blob/master/template/module/README.rst"
-manifest-required-authors={{ org_name }}
+manifest-required-authors=Coop IT Easy SC
 manifest-required-keys=license
 manifest-deprecated-keys=description,active
 license-allowed=AGPL-3,GPL-2,GPL-2 or any later version,GPL-3,GPL-3 or any later version,LGPL-3
-valid-odoo-versions={{ odoo_version }}
-{%- endif %}
+valid-odoo-versions=16.0
 
 [MESSAGES CONTROL]
 disable=all
-{% block note %}{% endblock %}
+
 enable=anomalous-backslash-in-string,
     api-one-deprecated,
     api-one-multi-together,
@@ -68,8 +57,7 @@ enable=anomalous-backslash-in-string,
     unreachable,
     use-vim-comment,
     wrong-tabs-instead-of-spaces,
-    xml-syntax-error
-{%- if odoo_version >= 15 %},
+    xml-syntax-error,
     attribute-string-redundant,
     character-not-valid-in-resource-link,
     consider-merging-classes-inherited,
@@ -101,15 +89,10 @@ enable=anomalous-backslash-in-string,
     website-manifest-key-not-valid-uri,
     xml-attribute-translatable,
     xml-deprecated-qweb-directive,
-    xml-deprecated-tree-attribute
-{%- endif %}
-{%- if odoo_version >= 16 %},
+    xml-deprecated-tree-attribute,
     external-request-timeout
-{%- endif %}
-{%- block optional_checks %}{% endblock %}
 
 [REPORTS]
 msg-template={path}:{line}: [{msg_id}({symbol}), {obj}] {msg}
 output-format=colorized
 reports=no
-{%- endif %}
