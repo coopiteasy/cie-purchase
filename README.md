@@ -17,7 +17,11 @@ Coop IT Easy's purchase related tools
 
 [//]: # (addons)
 
-This part will be replaced when running the oca-gen-addons-table script from OCA/maintainer-tools.
+Available addons
+----------------
+addon | version | maintainers | summary
+--- | --- | --- | ---
+[purchase_order_cost_update](purchase_order_cost_update/) | 16.0.1.0.1 | [![victor-champonnois](https://github.com/victor-champonnois.png?size=30px)](https://github.com/victor-champonnois) | Update product cost with the purchase price
 
 [//]: # (end addons)
 
